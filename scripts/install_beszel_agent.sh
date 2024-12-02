@@ -55,12 +55,12 @@ Description=Beszel Agent
 After=network.target
 
 [Service]
-Environment="PORT=$PORT"  # 端口
-Environment="KEY=$KEY"  # SSH Key
-ExecStart=$AGENT_EXEC  # Agent 执行路径
+Environment="PORT=$PORT"
+Environment="KEY=$KEY"
+ExecStart=$AGENT_EXEC
 Restart=always
 User=root
-WorkingDirectory=$AGENT_PATH  # 工作目录
+WorkingDirectory=$AGENT_PATH
 
 [Install]
 WantedBy=multi-user.target
