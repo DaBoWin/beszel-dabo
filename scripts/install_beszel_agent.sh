@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# 修复主机名解析问题
+HOSTNAME=$(hostname)
+if ! grep -q "127.0.0.1 $HOSTNAME" /etc/hosts; then
+    echo "127.0.0.1 $HOSTNAME" | sudo tee -a /etc/hosts >/dev/null
+fi
+
 # 默认值
 DEFAULT_PORT="45876"
 DEFAULT_KEY="ssh-ed25519 A"
@@ -9,15 +15,12 @@ DEFAULT_AGENT_EXEC="$DEFAULT_AGENT_PATH/beszel-agent"
 # 交互式输入端口、SSH Key 和安装路径
 read -r -p "Enter the port (default is $DEFAULT_PORT): " PORT
 PORT=${PORT:-$DEFAULT_PORT}
-read -r -p "Press Enter to continue..." DUMMY
 
 read -r -p "Enter the SSH Key (default is $DEFAULT_KEY): " KEY
 KEY=${KEY:-$DEFAULT_KEY}
-read -r -p "Press Enter to continue..." DUMMY
 
 read -r -p "Enter the agent installation path (default is $DEFAULT_AGENT_PATH): " AGENT_PATH
 AGENT_PATH=${AGENT_PATH:-$DEFAULT_AGENT_PATH}
-read -r -p "Press Enter to continue..." DUMMY
 
 # 设置 Agent 执行路径
 AGENT_EXEC="$AGENT_PATH/beszel-agent"
