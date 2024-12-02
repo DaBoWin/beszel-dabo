@@ -7,23 +7,17 @@ DEFAULT_AGENT_PATH="/root/docker/beszel"
 DEFAULT_AGENT_EXEC="$DEFAULT_AGENT_PATH/beszel-agent"
 
 # 交互式输入端口、SSH Key 和安装路径
-echo "Enter the port (default is $DEFAULT_PORT):"
-read -r PORT
+read -r -p "Enter the port (default is $DEFAULT_PORT): " PORT
 PORT=${PORT:-$DEFAULT_PORT}
-echo "Press Enter to continue..."
-read -r
+read -r -p "Press Enter to continue..." DUMMY
 
-echo "Enter the SSH Key (default is $DEFAULT_KEY):"
-read -r KEY
+read -r -p "Enter the SSH Key (default is $DEFAULT_KEY): " KEY
 KEY=${KEY:-$DEFAULT_KEY}
-echo "Press Enter to continue..."
-read -r
+read -r -p "Press Enter to continue..." DUMMY
 
-echo "Enter the agent installation path (default is $DEFAULT_AGENT_PATH):"
-read -r AGENT_PATH
+read -r -p "Enter the agent installation path (default is $DEFAULT_AGENT_PATH): " AGENT_PATH
 AGENT_PATH=${AGENT_PATH:-$DEFAULT_AGENT_PATH}
-echo "Press Enter to continue..."
-read -r
+read -r -p "Press Enter to continue..." DUMMY
 
 # 设置 Agent 执行路径
 AGENT_EXEC="$AGENT_PATH/beszel-agent"
