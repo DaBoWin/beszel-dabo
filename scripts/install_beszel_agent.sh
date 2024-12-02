@@ -9,19 +9,19 @@ DEFAULT_AGENT_EXEC="$DEFAULT_AGENT_PATH/beszel-agent"
 # 交互式输入端口、SSH Key 和安装路径
 echo "Enter the port (default is $DEFAULT_PORT):"
 read -r PORT
-PORT=${PORT:-$DEFAULT_PORT}  # 如果没有输入，使用默认值
+PORT=${PORT:-$DEFAULT_PORT}
 echo "Press Enter to continue..."
 read -r
 
 echo "Enter the SSH Key (default is $DEFAULT_KEY):"
 read -r KEY
-KEY=${KEY:-$DEFAULT_KEY}  # 如果没有输入，使用默认值
+KEY=${KEY:-$DEFAULT_KEY}
 echo "Press Enter to continue..."
 read -r
 
 echo "Enter the agent installation path (default is $DEFAULT_AGENT_PATH):"
 read -r AGENT_PATH
-AGENT_PATH=${AGENT_PATH:-$DEFAULT_AGENT_PATH}  # 如果没有输入，使用默认值
+AGENT_PATH=${AGENT_PATH:-$DEFAULT_AGENT_PATH}
 echo "Press Enter to continue..."
 read -r
 
