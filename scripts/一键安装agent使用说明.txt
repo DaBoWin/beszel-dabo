@@ -1,12 +1,9 @@
 一键命令
 curl -sL https://raw.githubusercontent.com/DaBoWin/beszel-dabo/refs/heads/main/scripts/install_beszel_agent.sh -o install_beszel_agent.sh && chmod +x install_beszel_agent.sh && ./install_beszel_agent.sh
 
-交互输入示例
-Enter the port (default is 45876):
-8080
-Enter the SSH Key (default is ssh-ed25519 A):
-ssh-ed25519 ABCD1234
-Enter the agent installation path (default is /root/docker/beszel):
-/opt/beszel
+交互输入示例, beszel面板添加客户端 记住端口 和 ssh key用于脚本输入，agent安装路径自己定义也可以默认
+Enter the port (default is 45876):8080 
+Enter the SSH Key (default is ssh-ed25519 A):ssh-ed25519 ABCD1234
+Enter the agent installation path (default is /root/docker/beszel):/opt/beszel
 
 
