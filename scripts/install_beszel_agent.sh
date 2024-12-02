@@ -6,21 +6,21 @@ DEFAULT_KEY="ssh-ed25519 A"
 DEFAULT_AGENT_PATH="/root/docker/beszel"
 DEFAULT_AGENT_EXEC="$DEFAULT_AGENT_PATH/beszel-agent"
 
-# 解析命令行参数
-while getopts "p:k:a:" opt; do
-  case $opt in
-    p) PORT=$OPTARG ;;  # 设置端口
-    k) KEY=$OPTARG ;;   # 设置 SSH Key
-    a) AGENT_PATH=$OPTARG ;;  # 设置 Agent 路径
-    *) echo "Usage: $0 [-p port] [-k ssh_key] [-a agent_path]"; exit 1 ;;
-  esac
-done
+# 交互式输入端口、SSH Key 和安装路径
+echo "Enter the port (default is $DEFAULT_PORT):"
+read -r PORT
+PORT=${PORT:-$DEFAULT_PORT}  # 如果没有输入，使用默认值
 
-# 使用默认值，如果参数没有传入
-PORT=${PORT:-$DEFAULT_PORT}
-KEY=${KEY:-$DEFAULT_KEY}
-AGENT_PATH=${AGENT_PATH:-$DEFAULT_AGENT_PATH}
-AGENT_EXEC=${AGENT_PATH}/beszel-agent
+echo "Enter the SSH Key (default is $DEFAULT_KEY):"
+read -r KEY
+KEY=${KEY:-$DEFAULT_KEY}  # 如果没有输入，使用默认值
+
+echo "Enter the agent installation path (default is $DEFAULT_AGENT_PATH):"
+read -r AGENT_PATH
+AGENT_PATH=${AGENT_PATH:-$DEFAULT_AGENT_PATH}  # 如果没有输入，使用默认值
+
+# 设置 Agent 执行路径
+AGENT_EXEC="$AGENT_PATH/beszel-agent"
 
 # 检查并创建 Agent 安装路径
 echo "Checking if agent path exists: $AGENT_PATH"
