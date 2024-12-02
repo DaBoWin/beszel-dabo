@@ -1,5 +1,5 @@
 一键命令
-curl -sL https://github.com/your-username/your-repository/raw/main/scripts/install_beszel_agent.sh | bash
+curl -sL https://raw.githubusercontent.com/DaBoWin/beszel-dabo/refs/heads/main/scripts/install_beszel_agent.sh | bash
 
 交互输入示例
 Enter the port (default is 45876):
